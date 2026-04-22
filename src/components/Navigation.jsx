@@ -28,10 +28,10 @@ const Navigation = ({ scrollY }) => {
         </button>
 
         <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
-          <li><a onClick={() => scrollToSection('hero')}>Home</a></li>
-          <li><a onClick={() => scrollToSection('services')}>Services</a></li>
-          <li><a onClick={() => scrollToSection('why-us')}>Why Us</a></li>
-          <li><a onClick={() => scrollToSection('about')}>About</a></li>
+          <li><a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>Home</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a></li>
+          <li><a href="#why-us" onClick={(e) => { e.preventDefault(); scrollToSection('why-us'); }}>Why Us</a></li>
+          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a></li>
           <li>
             <button 
               className="cta-btn"

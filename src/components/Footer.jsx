@@ -19,9 +19,9 @@ const Footer = () => {
           </div>
 
           <div className="footer-social">
-            <a href="#" className="social-link">LinkedIn</a>
-            <a href="#" className="social-link">Twitter</a>
-            <a href="#" className="social-link">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
           </div>
         </div>
 
