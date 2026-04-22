@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cortexium - Clinical Bridge Between Human and AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+                    <path d="M12 20C12 14.48 16.48 10 22 10" stroke="#00d4ff" stroke-width="2" fill="none"/>
+                    <circle cx="25" cy="12" r="2.5" fill="#00d4ff"/>
+                    <circle cx="24" cy="18" r="2" fill="#00d4ff"/>
+                    <circle cx="22" cy="24" r="2.5" fill="#00d4ff"/>
+                    <circle cx="18" cy="22" r="2" fill="#00d4ff"/>
+                </svg>
+                <span class="logo-text">CORTEXIUM</span>
+            </div>
+            <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-menu').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <h1>Scale Your Business<br>With Intelligent AI</h1>
+            <p>The Clinical Bridge Between Human Expertise and Artificial Intelligence</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start Your Journey</button>
+                <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Transforming businesses through strategic AI integration</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M16 24H32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 16V32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>AI Strategy & Consulting</h3>
+                    <p>Develop comprehensive AI strategies tailored to your business goals. We help you identify opportunities and chart your path to digital transformation.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="14" r="4" fill="currentColor"/>
+                            <rect x="20" y="20" width="8" height="14" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 28L8 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M36 28L40 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Process Automation</h3>
+                    <p>Streamline operations with intelligent automation. Reduce costs, improve efficiency, and free up your team to focus on high-value work.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="14" width="12" height="20" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="26" y="10" width="12" height="24" stroke="currentColor" stroke-width="1.5"/>
+                            <line x1="16" y1="38" x2="32" y2="38" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Data Intelligence</h3>
+                    <p>Turn raw data into actionable insights. Our analytics solutions help you make informed decisions and uncover hidden growth opportunities.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M24 10V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 28H32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Custom AI Solutions</h3>
+                    <p>Purpose-built AI applications designed for your specific challenges. From chatbots to predictive models, we create solutions that deliver results.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="14" r="5" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M11 20H21C22.6569 20 24 21.3431 24 23V35" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="32" cy="14" r="5" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M27 20H37C38.6569 20 40 21.3431 40 23V35" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Team Training & Support</h3>
+                    <p>Empower your workforce with AI expertise. We provide comprehensive training and ongoing support to ensure successful adoption.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 28C12 22.4772 16.4772 18 22 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M26 14L30 10L34 14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            <circle cx="20" cy="32" r="8" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Growth Scaling</h3>
+                    <p>Accelerate your growth with AI-driven insights and automation. Scale revenue and operations without proportional cost increases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why" class="why-us">
+        <div class="container">
+            <h2>Why Choose Cortexium</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <h4>Clinical Approach</h4>
+                    <p>Rigorous, methodical implementation ensuring measurable results and sustainable growth.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Human-Centric</h4>
+                    <p>We augment human capability, not replace it. Your team stays in control and empowered.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Proven Expertise</h4>
+                    <p>Years of experience scaling businesses across multiple industries and market segments.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Results-Driven</h4>
+                    <p>Transparent ROI metrics and regular reporting keep you informed every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Cortexium</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Cortexium is your trusted partner in navigating the intersection of artificial intelligence and business growth. We believe that the future belongs to companies that seamlessly blend human ingenuity with machine intelligence.</p>
+                    <p>Our mission is to help service-based companies scale efficiently by leveraging cutting-edge AI technologies. We don't just implement solutions—we transform how your business operates, thinks, and grows.</p>
+                    <p>Whether you're looking to automate workflows, gain deeper market insights, or launch new AI-powered products, Cortexium brings clinical precision and human expertise to every engagement.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Companies Transformed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>300%</h3>
+                        <p>Average Growth Rate</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Dedicated Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Scale Your Business</h2>
+            <p class="section-subtitle">Ready to unlock your growth potential with AI?</p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Company Name" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell us about your project" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            
+            <div class="contact-info">
+                <p><span class="contact-label">Email:</span> hello@cortexium.ai</p>
+                <p><span class="contact-label">Phone:</span> (555) 123-4567</p>
+                <p><span class="contact-label">Web:</span> www.cortexium.ai</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Cortexium. The Clinical Bridge Between Human and AI. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
