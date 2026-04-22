@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { FaRocket, FaLock, FaChartBar } from 'react-icons/fa';
 import './Hero.css';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -21,6 +23,27 @@ const Hero = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const cardData = [
+    {
+      id: 1,
+      icon: FaRocket,
+      title: 'Fast Deployment',
+      description: 'Deploy AI solutions in days, not months. Quick setup and rapid deployment.'
+    },
+    {
+      id: 2,
+      icon: FaLock,
+      title: 'Enterprise Security',
+      description: 'Bank-grade encryption and compliance. Your data is protected always.'
+    },
+    {
+      id: 3,
+      icon: FaChartBar,
+      title: 'Real-time Analytics',
+      description: 'Live dashboards and instant insights. Monitor performance 24/7.'
+    }
+  ];
 
   return (
     <section id="hero" className="hero">
@@ -81,20 +104,29 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Floating cards with scroll effect */}
+        {/* Feature cards with reveal animation */}
         <div className="floating-cards">
-          <div className="card-item" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
-            <div className="card-icon">🚀</div>
-            <p>Fast Deployment</p>
-          </div>
-          <div className="card-item" style={{ transform: `translateY(${scrollY * 0.4}px)` }}>
-            <div className="card-icon">🔒</div>
-            <p>Enterprise Security</p>
-          </div>
-          <div className="card-item" style={{ transform: `translateY(${scrollY * 0.35}px)` }}>
-            <div className="card-icon">📊</div>
-            <p>Real-time Analytics</p>
-          </div>
+          {cardData.map((card) => {
+            const IconComponent = card.icon;
+            return (
+              <div 
+                key={card.id} 
+                className={`card-item ${hoveredCard === card.id ? 'hovered' : ''}`}
+                onMouseEnter={() => setHoveredCard(card.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="card-content">
+                  <div className="card-icon">
+                    <IconComponent />
+                  </div>
+                  <p className="card-title">{card.title}</p>
+                </div>
+                <div className="card-reveal">
+                  <p className="card-description">{card.description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
