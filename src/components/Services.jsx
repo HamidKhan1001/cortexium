@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Services.css';
 
 const Services = () => {
+  const [visibleCards, setVisibleCards] = useState([]);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setVisibleCards((prev) => [...new Set([...prev, entry.target.dataset.id])]);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const services = [
     {
       id: 1,
@@ -42,7 +62,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="services">
+    <section id="services" className="services" ref={ref}>
       <div className="services-container">
         <div className="section-header">
           <h2>Our Services</h2>
@@ -50,8 +70,12 @@ const Services = () => {
         </div>
 
         <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={service.id} className="service-card" style={{ animationDelay: `${index * 0.1}s` }}>
+          {services.map((service) => (
+            <div 
+              key={service.id} 
+              className={`service-card ${visibleCards.includes(String(service.id)) ? 'visible' : ''}`}
+              data-id={service.id}
+            >
               <div className="service-icon-wrapper">
                 <div className="service-icon">{service.icon}</div>
               </div>
