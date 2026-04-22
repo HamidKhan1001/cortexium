@@ -3,6 +3,7 @@ import './Hero.css';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -10,7 +11,12 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero">
-      <div className="hero-media" aria-hidden="true">
+      <div 
+        className={`hero-media ${isHovered ? 'hovered' : ''}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        aria-hidden="true"
+      >
         <video
           className="hero-video"
           autoPlay
@@ -23,6 +29,11 @@ const Hero = () => {
           <source src="https://cdn.coverr.co/videos/coverr-working-with-graphs-1579/1080p.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay"></div>
+        <div className="hero-reveal-text">
+          <span>Transforming</span>
+          <span>Healthcare</span>
+          <span>With AI</span>
+        </div>
       </div>
 
       <div className="hero-content">

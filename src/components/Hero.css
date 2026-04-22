@@ -30,6 +30,56 @@
     linear-gradient(112deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.7) 45%, rgba(26, 26, 26, 0.95) 100%);
 }
 
+.hero-reveal-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.hero-media.hovered .hero-reveal-text {
+  opacity: 1;
+}
+
+.hero-reveal-text span {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: revealWord 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.hero-media.hovered .hero-reveal-text span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero-media.hovered .hero-reveal-text span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.hero-media.hovered .hero-reveal-text span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes revealWord {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
