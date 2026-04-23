@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FaRocket, FaLock, FaChartBar } from 'react-icons/fa';
 import './Hero.css';
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const particles = useMemo(
+    () =>
+      [...Array(18)].map((_, i) => ({
+        id: i,
+        left: `${(i * 17) % 100}%`,
+        top: `${(i * 29) % 100}%`,
+        delay: `${i * 0.2}s`,
+      })),
+    []
+  );
 
   const cardData = [
     {
@@ -56,61 +48,66 @@ const Hero = () => {
 
       {/* Floating particles */}
       <div className="particles">
-        {[...Array(20)].map((_, i) => (
-          <div 
-            key={i} 
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
             className="particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.1}s`,
-              opacity: Math.random() * 0.5 + 0.2
+              left: particle.left,
+              top: particle.top,
+              animationDelay: particle.delay,
             }}
-          ></div>
+          />
         ))}
       </div>
 
-      {/* Mouse follower */}
-      <div 
-        className="mouse-glow"
-        style={{
-          left: `${mousePosition.x}px`,
-          top: `${mousePosition.y}px`,
-        }}
-      ></div>
-
       <div className="hero-content">
-        <div className="hero-text" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+        <div className="hero-text">
+          <div className="hero-kicker">Built for outcomes, not demos</div>
+
           <h1 className="hero-title">
-            <span className="word">Scale</span>
-            <span className="word">Your</span>
-            <span className="word">Business</span>
-            <br />
-            <span className="gradient-text word">With Intelligent AI</span>
+            <span className="word">Launch AI workflows</span>
+            <span className="word">that your team</span>
+            <span className="gradient-text word">actually ships.</span>
           </h1>
 
           <p className="hero-subtitle">
-            The Clinical Bridge Between Human Expertise and Artificial Intelligence
+            Cortexium connects strategy, implementation, and governance so your
+            business can deliver measurable AI value without the chaos.
           </p>
+
+          <div className="hero-metrics">
+            <div className="metric-item">
+              <p className="metric-value">99.9%</p>
+              <p className="metric-label">System reliability</p>
+            </div>
+            <div className="metric-item">
+              <p className="metric-value">4-6 weeks</p>
+              <p className="metric-label">Average go-live window</p>
+            </div>
+            <div className="metric-item">
+              <p className="metric-value">24/7</p>
+              <p className="metric-label">Monitoring and support</p>
+            </div>
+          </div>
 
           <div className="hero-buttons">
             <button className="btn btn-primary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              <span>Start Your Journey</span>
-              <span className="btn-glow"></span>
+              <span>Book a Strategy Call</span>
             </button>
             <button className="btn btn-secondary" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
-              <span>Learn More →</span>
+              <span>See How We Work</span>
             </button>
           </div>
         </div>
 
-        {/* Feature cards with reveal animation */}
+        {/* Feature cards */}
         <div className="floating-cards">
           {cardData.map((card) => {
             const IconComponent = card.icon;
             return (
-              <div 
-                key={card.id} 
+              <div
+                key={card.id}
                 className={`card-item ${hoveredCard === card.id ? 'hovered' : ''}`}
                 onMouseEnter={() => setHoveredCard(card.id)}
                 onMouseLeave={() => setHoveredCard(null)}
@@ -119,10 +116,10 @@ const Hero = () => {
                   <div className="card-icon">
                     <IconComponent />
                   </div>
-                  <p className="card-title">{card.title}</p>
-                </div>
-                <div className="card-reveal">
-                  <p className="card-description">{card.description}</p>
+                  <div className="card-texts">
+                    <p className="card-title">{card.title}</p>
+                    <p className="card-description">{card.description}</p>
+                  </div>
                 </div>
               </div>
             );

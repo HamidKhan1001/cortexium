@@ -1,16 +1,12 @@
 :root {
-  --primary-dark: #1a1a1a;
-  --bg-card: #2a2a2a;
-  --bg-hover: rgba(255, 255, 255, 0.1);
-  --text-primary: #ffffff;
-  --text-secondary: #d0d0d0;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --accent-white: #ffffff;
-  --accent-light: #f0f0f0;
-}
-
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  --primary-dark: #0e1627;
+  --bg-card: #17253c;
+  --bg-hover: rgba(125, 211, 252, 0.14);
+  --text-primary: #f8fbff;
+  --text-secondary: #cbd5e1;
+  --border-color: rgba(148, 163, 184, 0.24);
+  --accent-white: #e2e8f0;
+  --accent-light: #dbeafe;
 }
 
 .App {
@@ -80,7 +76,7 @@ section {
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 32px rgba(125, 211, 252, 0.22);
 }
 
 .btn-secondary {
